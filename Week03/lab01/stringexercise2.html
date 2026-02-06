@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>String Exercise 2</title>
+	<style>
+	  body {
+	     width:400px;
+		 margin:0 auto;
+	  }
+	  
+	  p {
+	     border: solid black 1px;
+		 height: 20px;
+	  }
+	</style>
+</head>
+
+<body>
+<h1>String Exercise Two</h1>
+<p id = "input"></p>
+<p id = "length"></p>
+<p id = "firstDot"></p>
+<p id = "lastDot"></p>
+<p id = "symbol"></p>
+<button>String Exercise 2</button>
+
+<script>
+
+const btn = document.querySelector('button');
+  
+btn.addEventListener('click', (evt) => {
+  let message = "";
+  const you = prompt("Enter your email", "");
+  you.indexOf("@")>=0 ? message =`The email entered was ${you}`
+	                	: message =`The @ symbol is NOT included`;
+	  document.querySelector('#input').textContent = message;
+	
+	  you.indexOf("@")>=0 ? message =`The length of your email is ${you.length}`
+	                	: message =`The @ symbol is NOT included`;
+	  document.querySelector('#length').textContent = message;
+
+	  you.indexOf("@")>=0 ? message =`The position of the first . is ${you.indexOf(".") +1}`
+	                	: message =`The @ symbol is NOT included`;
+	  document.querySelector('#firstDot').textContent = message;
+
+	  you.indexOf("@")>=0 ? message =`The position of the last . is ${you.lastIndexOf(".")+1}`
+	                	: message =`The @ symbol is NOT included`;
+	  document.querySelector('#lastDot').textContent = message;
+
+	  you.indexOf("@")>=0 ? message =`The position of the @ symbol is ${you.indexOf("@")+1}`
+	                	: message =`The @ symbol is NOT included`;
+	  document.querySelector('#symbol').textContent = message;
+});
+	
+</script>
+
+</body>
+</html>
