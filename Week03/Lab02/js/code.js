@@ -14,14 +14,14 @@ const redbtn = document.querySelector(".red");
 
 redbtn.addEventListener("click", () => {
  let username = prompt("What's your name?");
- let names = username.split(" ");
- let newusername = "";
+ let formattedName = ""
+ let words = username.split(' ')
 
- for (let i = 0; i < names.length; i++) {
-  let word = names[i].substring(0,1).toUpperCase() + names[i].substring(1).toLowerCase();
-  newusername += word + " ";
+ for (let i = 0; i < words.length; i++) 
+  {
+  formattedName += words[i].charAt(0).toUpperCase() + words[i].substring(1).toLowerCase() + " "
   }
 
-  document.querySelector("h1").textContent = `Welcome to the App, ${newusername} !`;
+  document.querySelector("h1").textContent = `Welcome to the App, ${formattedName} !`;
   
 });
