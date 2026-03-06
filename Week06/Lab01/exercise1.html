@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Template Exercise 1</title>
+</head>
+
+<body>
+
+<script id="exercise1" type="text/x-handlebars-template">
+
+You can find me in <b>{{city}}</b>. My address is <b>{{number}} {{street}}</b>.
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+<script>
+
+const context={
+    "city": "London",
+    "street": "Baker Street",
+    "number": "221B"
+}
+
+let template = Handlebars.compile(document.querySelector(`#exercise1`).innerHTML);
+
+let thecontent = template(context);
+
+document.body.innerHTML = thecontent;
+
+</script>
+</body>
+</html>
