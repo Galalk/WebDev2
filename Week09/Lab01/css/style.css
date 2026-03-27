@@ -1,0 +1,257 @@
+html,
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  width: 90%;
+  margin: 1em auto;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2em;
+  gap: 2em;
+}
+
+nav {
+  background-color: #7CB9E8;
+  padding-left: 30px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav form {
+  display: flex;
+  justify-content: flex-start;
+}
+
+nav label {
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: lightgrey;
+}
+
+nav li a:hover {
+  text-decoration: underline;
+}
+
+
+h1 {
+  text-align: center;
+  color: navy;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+#main2 {
+  display: flex;
+  flex-direction: column;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+#car {
+  flex: 1;
+}
+
+
+
+table {
+  width: 60%;
+  border-collapse: collapse;
+  padding: .1em;
+  align-self: center;
+}
+
+table,
+th,
+td {
+  border: solid black 1px;
+}
+
+
+td {
+  text-align: center;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #7CB9E8;
+  color: white;
+}
+
+button {
+  padding: 1em;
+  background: #6699CC;
+  color: white;
+  border: 0;
+  margin-top: 1em;
+  align-self: flex-start;
+}
+
+table button {
+  padding: .5em;
+  margin-top: 0em;
+}
+
+form#inputForm {
+  flex: 1;
+}
+
+form#inputForm {
+  border: solid #00ABE4;
+  padding: 1em;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-row>label {
+  flex: 0 1 30%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+form input,
+form select {
+  flex: 2;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+
+form button {
+  padding: 1em;
+  background: #00ABE4;
+  color: white;
+  border: 0;
+  margin-top: 1em;
+}
+
+dialog {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  padding: 2em;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, .7);
+}
+
+dialog .modal__title {
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 1px solid white;
+  background: #00ABE4;
+  color: white;
+}
+
+dialog .fa-close {
+  float: right;
+}
+
+img {
+  height: 45px;
+  line-height: 50px;
+  text-align: center;
+  width: 100px;
+}
+
+.cards,
+#image {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 0 0 280px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.card img {
+  height: 60px;
+}
+
+.card .text {
+  padding: 0 20px 10px;
+}
+
+.card p:nth-of-type(1) {
+  padding-bottom: 1em;
+
+}
+
+.card p:nth-of-type(2) {
+  border-top: solid lightgray 1px;
+  padding-top: 1em;
+  color: gray;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+#outer {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.inner {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.inner span {
+  flex: 1;
+}
+
+#active {
+  color: white;
+}
+
+tr {
+  transition: background 0.2s;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.car-img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Manipulate Objects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <h1>Car Sales</h1>
+  <div id="container">
+    <nav>
+      <form id="searchForm">
+        <div class="form-row">
+          <label for="search">Search Cars</label>
+          <input type="text" id="search" name="search" placeholder="Search by make" size="30">
+        </div>
+      </form>
+      <ul>
+        <li><a id="active" href="index.html">Add Stock</a></li>
+        <li><a href="stock.html">View Stock</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <table></table>
+      <button id="toggle">Add a Record</button>
+    </main>
+
+
+    <dialog>
+      <header class="modal__title">
+        <h1>Add a Car<span id="close"><i class="fa fa-close"></i></span></h1>
+      </header>
+
+      <form id="inputForm">
+        <div class="form-row">
+          <label for="reg">Registration Number</label>
+          <input type="text" name="reg" id="reg" autofocus required title="Please enter a valid Registration Number">
+        </div>
+
+        <div class="form-row">
+          <label for="make">Make</label>
+          <select name="make" id="make" required>
+            <option value="">-- Select a Make --</option>
+            <option value="Ford">Ford</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Renault">Renault</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Tesla">Tesla</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="model">Model</label>
+          <select id="model" name="model" required>
+            <option value="">-- Select a Model --</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="colour">Colour</label>
+          <input type="text" name="colour" id="colour" required title="Please enter a valid car Colour">
+        </div>
+        <div class="form-row">
+          <label for="colour">Kilometres</label>
+          <input type="text" name="kms" id="kms" required title="Please enter your cars Kilometres">
+        </div>
+        <div class="form-row">
+          <label for="year">Year</label>
+          <input type="text" name="year" id="year" required title="Please enter a valid value for Year">
+        </div>
+        <div class="form-row">
+        <label for="style">Style</label>
+        <select name="style" id="style" required>
+            <option value="">-- Select a Make --</option>
+            <option value="Ford">Hatchback</option>
+            <option value="Hyundai">Saloon</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="price">Price</label>
+          <input type="text" name="price" id="price" required title="Please enter the price of the car">
+        </div>
+        <div class="form-row">
+          <label for="img">Car Image (URL)</label>
+          <input type="text" name="img" id="img" required title="Please enter the car image URL">
+        </div>
+       
+        <button type="submit">
+          Add a New Car
+        </button>
+        <button type="reset">
+          Clear the Info
+        </button>
+      </form>
+    </dialog>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+  <script id="cardisplay" type="text/x-handlebars-template">
+  {{#if this}}
+   <thead>
+    <tr>
+     <th>Make</th>
+     <th>Model</th>
+     <th>Colour</th>
+     <th>Kilometres</th>
+     <th>Year</th>
+     <th>Price</th>
+     <th>Picture</th>
+     <th></th>
+    </tr>
+   </thead>
+   <tbody>
+    {{#each this}}
+     <tr>
+      <td>{{make}}</td>
+      <td>{{model}}</td>
+      <td>{{colour}}</td>
+      <td>{{formatKms kms}}</td>
+      <td>{{year}}</td>
+      <td>{{formatPrice price}}</td>
+      <td><img src = "{{img}}" alt="{{make}} {{model}}" class="car-img"></td>
+      <td><button data-id = "{{regNo}}">Delete</button>
+     </tr>
+    {{/each}}
+   </tbody>
+  {{/if}}
+  </script>
+
+  <script src="js/code.js"></script>
+  <script>
+
+    Handlebars.registerHelper("formatColour", function(colour){ return colour.charAt(0).toUpperCase() +colour.slice(1).toLowerCase(); });
+
+    Handlebars.registerHelper("formatKms", function(kms) { return kms.toLocaleString(); });
+
+    Handlebars.registerHelper("formatPrice",function(price) { return "€" + price.toLocaleString(); });
+
+    const form = document.querySelector("#inputForm");
+    const makeSelect = form.elements.make;
+    const modelSelect = form.elements.model;
+    const table = document.querySelector("table");
+    const btn = document.querySelector("#toggle");
+    const dialog = document.querySelector("dialog");
+    const btnClose = document.querySelector("#close");
+    const template = Handlebars.compile(document.querySelector('#cardisplay').innerHTML);
+    
+    const saveData = () => {
+      localStorage.setItem('carsplus', JSON.stringify(carData));
+    };
+
+    const addRecord = (evt) => {
+      evt.preventDefault();
+
+      const regNo = form.elements.reg.value;
+      const make = form.elements.make.value;
+      const model = form.elements.model.value;
+      const colour = form.elements.colour.value;
+      const year = parseInt(form.elements.year.value);
+      const kms = parseInt(form.elements.kms.value);
+      const style = form.elements.style.value;
+      const price = parseInt(form.elements.price.value);
+      const img = form.elements.img.value;
+
+      if (isNaN(year) || year < 2000 ) {
+        alert("There is an error with the year value")
+        return;
+      }
+
+      if (isNaN(kms) || kms < 0 ) {
+        alert("Kilometres must be a positive number")
+        return;
+      }
+
+      if (isNaN(price) || price < 500) {
+      alert("Price must be a number and not less than 500");
+      return;
+      }
+      
+
+      const newcar = { regNo, make, model, colour, kms, year, style, price, img};
+      carData.push(newcar);
+
+      saveData();
+      displayRecs(carData, table);
+      form.reset();
+      form.elements[0].focus();
+
+    };
+
+    // ---------------------------
+    // EVENT LISTENERS 
+    // ---------------------------
+
+    // Populate models dropdown
+    makeSelect.addEventListener('change', () => {
+      const make = makeSelect.value;
+      modelSelect.innerHTML = '<option value="">-- Select a Model --</option>';
+
+      if (make && defaultModels[make]) {
+        defaultModels[make].forEach(model => {
+          const option = document.createElement('option');
+          option.value = model.model;
+          option.textContent = model.model;
+          modelSelect.appendChild(option);
+        });
+      }
+    });
+
+    // Delete record
+    table.addEventListener("click", (evt) => {
+      if (evt.target.matches("button")) {
+        const deleteIndex = carData.findIndex(
+          car => car.regNo === evt.target.dataset.id
+        );
+
+        if (deleteIndex !== -1) {
+          carData.splice(deleteIndex, 1);
+          saveData();
+          displayRecs(carData, table);
+        }
+      }
+    });
+
+    searchInput.addEventListener("input",  () => {
+    const searchQuery = searchInput.value.trim().toLowerCase();
+    const filteredcars = carData.filter(car => car.make.toLowerCase().includes(searchQuery));
+    displayRecs(filteredcars, table);
+});
+
+    form.addEventListener("submit", addRecord);
+
+
+    btn.addEventListener("click", (evt) => dialog.showModal());
+
+
+    btnClose.addEventListener("click", (evt) => dialog.close());
+
+
+    displayRecs(carData, table);
+  </script>
+</body>
+
+</html>

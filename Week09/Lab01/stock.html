@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Manipulate Objects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <h1>Car Sales</h1>
+  <div id="container">
+    <nav>
+      <form id="searchForm">
+        <div class="form-row">
+          <label for="search">Search Cars</label>
+          <input type="text" id="search" name="search" placeholder="Search by make" size="30">
+        </div>
+      </form>
+      <ul>
+        <li><a  href="index.html">Add Stock</a></li>
+        <li><a id="active" href="stock.html">View Stock</a></li>
+      </ul>
+    </nav>
+
+
+    <main id="main2">
+      <section id="buttons">
+        <button id="years">Sort by Year</button>
+        <button id="colours">Sort by Colour</button>
+        <button id="reset">Reset</button>
+      </section>
+      <p id="car"></p>
+    </main>
+
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script id="card-template" type="text/x-handlebars-template">
+
+  {{#if this}}
+    <div class="cards">
+     {{#each this}}
+      <div class="card">
+       <div id = "image">
+        <img src="{{img}}" alt="{{image}}" >
+       </div>
+       <div class="text">
+        <h2>{{make}} {{model}}</h2>
+      
+        <div id="outer">
+         <div class = "inner">
+          <span><i class="fa fa-calendar"></i>{{year}} </span>
+          <span><i class="fa fa-paint-brush"></i>{{formatColour colour}} </span>
+         </div>
+         <div class="inner">
+          <span><i class="fa fa-tachometer"></i>{{formatKms kms}}</span>
+          <span><i class="fa fa-car"></i> {{style}}</span>
+         </div>
+        </div>
+        <p><i class="fa fa-eur"></i>{{formatPrice price}} </p>
+       </div>
+      </div>
+     {{/each}}
+    </div>
+  {{/if}}
+  
+  </tbody>
+  </script>
+   <script src="js/code.js"></script>
+  <script>
+    
+    let filteredcars = carData.slice();
+
+    Handlebars.registerHelper("formatColour", function(colour){ return colour.charAt(0).toUpperCase() +colour.slice(1).toLowerCase(); });
+
+    Handlebars.registerHelper("formatKms", function(kms) { return kms.toLocaleString(); });
+
+    Handlebars.registerHelper("formatPrice",function(price) { return "€" + price.toLocaleString(); });
+    
+    const para = document.querySelector("#car");
+    let years = document.querySelector('#years');
+    let colours = document.querySelector('#colours');
+    let reset = document.querySelector('#reset');
+    let template = Handlebars.compile(document.querySelector("#card-template").innerHTML);
+
+ 
+      reset.addEventListener('click', (evt) => displayRecs(carData, para))
+
+      years.addEventListener('click', () => { 
+            filteredcars.sort((a, b) => b.year - a.year); 
+            displayRecs(filteredcars, para); });
+
+      colours.addEventListener('click', () => {
+        filteredcars.sort((a, b) => a.colour.localeCompare(b.colour));
+        displayRecs(filteredcars, para);
+        });
+
+    searchInput.addEventListener("input",  () => {
+      const searchQuery = searchInput.value.trim().toLowerCase();
+      filteredcars = carData.filter(car => car.make.toLowerCase().startsWith(searchQuery));
+      displayRecs(filteredcars, para);
+    });
+
+    displayRecs(carData,  para) 
+
+    
+
+
+
+  </script>
+</body>
+
+</html>
