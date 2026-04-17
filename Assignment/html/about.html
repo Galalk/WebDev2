@@ -24,11 +24,15 @@
     
     <h2>About my project</h2>
     <div class="about-container">
-    <p>My project is a website called TradeIt.com, which is a platform for buying,
-       selling, and trading old video games. The website allows users to create accounts, 
-       list their games for sale or trade, and browse through a wide selection of second-hand 
-       games from other users. The goal of the project is to provide a convenient and user-friendly 
-       platform for gamers to exchange their old games with others in the gaming community.</p>
+  <p> My project is a website called TradeIt.com, which is a platform for buying,
+      selling, and trading old video games.
+      The first home page consists of 2 interactive elements, a dynamic welcome message for your name and an image gallery.<br>
+      The second page is the main data page, it contains the table for the array of objects which are individual games. 
+      It has a search function along with sort high to low/ low to high buttons, and also an add button with all necessary fields. For the extra
+      feature I included an overall average price of the games currently listed on the table which changes with the search fuction.<br>
+      The final page consists of the add a comment and view comments sections. 
+      It also has a further 2 interactive elements which are a show/hide button and an image rollover.
+</p>
 
       <section id="gallery2">
       <div class="img-wrap">
@@ -41,15 +45,19 @@
     </div>
     
     <button class="show-btn">More before and afters</button>
-    <section id = "hidden-gallary">
+    <section id = "hidden-gallery">
+      <div class="img-wrap">
         <a href="../images/welcome after.png">
           <img alt="Photo 2" src="../images/welcome after.png" class="after">
           <img alt="Photo 2" src="../images/welcome wire.png" class="before">
         </a> 
+      </div>
+       <div class="img-wrap">
         <a href="../images/about after.png">
           <img alt="Photo 3" src="../images/about after.png" class="after">
           <img alt="Photo 3" src="../images/about wire.png" class="before">
         </a>   
+      </div>
     </section>
     
 
@@ -74,36 +82,49 @@
     </script>
 
     <script>
-    const comments = [
-      { name: "Alice", message: "Great website!" },
-      { name: "John", message: "Very useful project." }
-    ];
 
-    const form = document.getElementById('commentForm');
-    const container = document.getElementById('commentsContainer');         //Had to ask google for this
+      const showBtn = document.querySelector('.show-btn');
+      const gallery = document.getElementById('hidden-gallery');
 
-    const source = document.getElementById('comments-template').innerHTML;
-    const template = Handlebars.compile(source);
+      showBtn.addEventListener('click', function() {                             //Week 3 labs and needed to use google to figure out why it wasnt working and correct the code
+        gallery.classList.toggle('show');
+        if (gallery.classList.contains('show')) {
+          showBtn.textContent = "Show Less";
+        } else {
+          showBtn.textContent = "More before and afters";
+        }
+      });
 
-    function renderComments() {
-      const reversed = [...comments].reverse();
-      container.innerHTML = template({ comments: reversed });
-    }
+      const comments = [
+        { name: "Alice", message: "Great website!" },
+        { name: "John", message: "Very useful project." }
+      ];
+
+      const form = document.getElementById('commentForm');
+      const container = document.getElementById('commentsContainer');         //Had to ask google for this
+
+      const source = document.getElementById('comments-template').innerHTML;
+      const template = Handlebars.compile(source);
+
+      function renderComments() {
+        const reversed = [...comments].reverse();
+        container.innerHTML = template({ comments: reversed });
+      }
 
     
-    form.addEventListener('submit', function(evt) {
-      evt.preventDefault();
+      form.addEventListener('submit', function(evt) {
+        evt.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
 
-      comments.push({name, message });
+        comments.push({name, message });
+
+        renderComments();
+        form.reset();
+      });
 
       renderComments();
-      form.reset();
-    });
-
-    renderComments();
 
   </script>
 

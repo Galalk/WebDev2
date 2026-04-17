@@ -79,7 +79,8 @@ h1, h2, h3 {
   align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: xx-large;
-  margin-bottom: 2em;
+  margin-bottom: 1.3em;
+  margin-top: 1em;  
 }
 
 .button-box {
@@ -94,7 +95,7 @@ h1, h2, h3 {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 1em;
+  margin-bottom: 1em;;
 }
 
 .name-btn, .age-btn {
@@ -112,6 +113,7 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 8em;
 }
 
 .add-btn {
@@ -379,6 +381,45 @@ footer {
   margin: 7em auto;
 }
 
+#hidden-gallery {
+  display: none;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 3em;
+}
+
+#hidden-gallery.show {
+  display: flex;
+}
+
+#hidden-gallery .img-wrap {
+  width: 20em;
+  height: 12em;
+  position: relative;           /* google helped with this part */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.img-wrap .after {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.img-wrap .before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-wrap:hover .after {
+  opacity: 0;
+}
+
+.img-wrap:hover .before {
+  opacity: 1;
+}
 
 
 

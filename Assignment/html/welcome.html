@@ -17,31 +17,26 @@
         <li> <a href="about.html">About</a> </li>
       </ul>
     </nav>
-    <div id = "greeting">
-    </h2>Welcome</h2>
-    </div>
 
-    <h2>Please enter your details below. Some content might be 18+</h2>      <!-- Week 3 Labs-->
-    
-    <div class = "button-box">
-    <div class = "button-box-row">                                                   
+    <h2 id = "greeting">Welcome</h2>
+  
+    <h2>Tell us who you are!</h2>      <!-- Week 3 Labs-->
+
+    <div class = "button-box">                                                
     <section id="btns">
         <button class="name-btn">Name</button>
-        
-        <button class="age-btn">Age</button>
-    </div>
     </div>
 
     <p>Welcome to the worlds largest video game exchange website<br>
     We have a selection of second hand games from people looking to sell or trade<br>
     All are welcome!</p>
 
-        <p> TradeIt.com was founded in Ireland in 2001. It started as a personal college project that attracted a handfull of users who could post their old games they didnt want and 
-            trade with people anywhere in the world. It quickly blew up and had thousands of users in the first year and continued to grow until today 
-            where millions of users are buying, selling or trading games.
-        </p>
+    <p> TradeIt.com was founded in Ireland in 2001. It started as a personal college project that attracted a handfull of users who could post their old games they didnt want and 
+        trade with people anywhere in the world. It quickly blew up and had thousands of users in the first year and continued to grow until today 
+        where millions of users are buying, selling or trading games.
+    </p>
 
-      <div id="container">
+    <div id="container">
     <header>
       <h2>Our Achievements</h2>
     </header>
@@ -96,7 +91,7 @@
         namebtn.addEventListener("click", () => {         //Week 3 labs
         let name = prompt("What is your name");
         let formattedName = ("");
-        let words = username.split(' ');
+        let words = name.split(' '); 
 
         for (let i = 0; i < words.length; i++)
         {
