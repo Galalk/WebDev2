@@ -1,6 +1,6 @@
 const games =[
-    {    
-        id: crypto.randomUUID(),
+    {   
+        id: crypto.randomUUID(),     // I needed to ask ask google how to give each game a unique number so it could be deleted safely //
         title: "Red Dead Redemption 2",
         price: 24.99,
         genre: "Action/Adventure",
@@ -46,8 +46,8 @@ let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;
 Handlebars.registerHelper("formatPrice", (price) => {
     const num = Number(price);
     return !isNaN(num)
-        ? num.toLocaleString("en-IE", {
-            style: "currency",
+        ? num.toLocaleString("en-IE", {                                //needed help from google for overall layout and where each fuction should be placed
+            style: "currency",                                         //as some of it wasnt working properly
             currency: "EUR",
           })
         : "€0.00";
@@ -76,5 +76,5 @@ function addGame(title, price, genre, date, rating) {
         thedisplay.innerHTML = output;
     };
 
-
+    
 

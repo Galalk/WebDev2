@@ -33,14 +33,25 @@
       <section id="gallery2">
       <div class="img-wrap">
         <a href="../images/Screenshot 2026-04-14 192158.png">
-          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192158.png" class="after">
+          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192158.png" class="after">         <!-- Week 10 Labs-->
           <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192024.png" class="before">
         </a>    
-       </div> 
       </section>
+    </div>
     </div>
     
     <button class="show-btn">More before and afters</button>
+    <section id = "hidden-gallary">
+        <a href="../images/welcome after.png">
+          <img alt="Photo 2" src="../images/welcome after.png" class="after">
+          <img alt="Photo 2" src="../images/welcome wire.png" class="before">
+        </a> 
+        <a href="../images/about after.png">
+          <img alt="Photo 3" src="../images/about after.png" class="after">
+          <img alt="Photo 3" src="../images/about wire.png" class="before">
+        </a>   
+    </section>
+    
 
     <h2>Leave a Comment</h2>
     <form id="commentForm">
@@ -69,7 +80,7 @@
     ];
 
     const form = document.getElementById('commentForm');
-    const container = document.getElementById('commentsContainer');
+    const container = document.getElementById('commentsContainer');         //Had to ask google for this
 
     const source = document.getElementById('comments-template').innerHTML;
     const template = Handlebars.compile(source);

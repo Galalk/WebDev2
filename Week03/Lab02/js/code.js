@@ -15,7 +15,7 @@ const redbtn = document.querySelector(".red");
 redbtn.addEventListener("click", () => {
  let username = prompt("What's your name?");
  let formattedName = ""
- let words = username.split(' ')
+ let words = username.split(' ');
 
  for (let i = 0; i < words.length; i++) 
   {

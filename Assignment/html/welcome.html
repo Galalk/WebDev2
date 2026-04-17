@@ -7,24 +7,24 @@
     <title>TradeIt.com</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <h1>TradeIt.com &#127918</h1>
     <h3>Buy, sell or trade your old games</h3>
    
     <nav>
       <ul>
         <li> <a href="welcome.html">Home</a> </li>
-        <li> <a href="data.html">Store</a> </li>
+        <li> <a href="data.html">Store</a> </li>                       
         <li> <a href="about.html">About</a> </li>
       </ul>
     </nav>
-    
-    <h2>Welcome</h2>
+    <div id = "greeting">
+    </h2>Welcome</h2>
+    </div>
 
-    <h2>Please enter your details below. Some content might be 18+</h2>
+    <h2>Please enter your details below. Some content might be 18+</h2>      <!-- Week 3 Labs-->
     
     <div class = "button-box">
-    <div class = "button-box-row">
+    <div class = "button-box-row">                                                   
     <section id="btns">
         <button class="name-btn">Name</button>
         
@@ -36,7 +36,7 @@
     We have a selection of second hand games from people looking to sell or trade<br>
     All are welcome!</p>
 
-        <p>TradeIt.com was founded in Ireland in 2001. It started as a personal college project that attracted a handfull of users who could post their old games they didnt want and 
+        <p> TradeIt.com was founded in Ireland in 2001. It started as a personal college project that attracted a handfull of users who could post their old games they didnt want and 
             trade with people anywhere in the world. It quickly blew up and had thousands of users in the first year and continued to grow until today 
             where millions of users are buying, selling or trading games.
         </p>
@@ -68,13 +68,14 @@
     <img src="../images/fakecert1.png" alt="display" id="display" style="width: 500px;">
     </div>
 
+    <script src="../js/script.js"></script>
     <script>
 
     let gallery =  document.querySelector('#gallery');
     let source = document.querySelector('#display');
 
     gallery.addEventListener('click', (evt) => {
-        const img = evt.target.closest('img');
+        const img = evt.target.closest('img');      //Week 10 labs
         if (!img) return;
 
         evt.preventDefault();
@@ -88,7 +89,22 @@
             source.src = link.href;
             source.style.opacity = 1;
             }, 500);
-            });
+        });
+
+        const namebtn = document.querySelector(".name-btn");
+
+        namebtn.addEventListener("click", () => {         //Week 3 labs
+        let name = prompt("What is your name");
+        let formattedName = ("");
+        let words = username.split(' ');
+
+        for (let i = 0; i < words.length; i++)
+        {
+            formattedName += words[i].charAt(0).toUpperCase() + words[i].substring(1).toLowerCase() + " ";
+        }
+
+        document.querySelector("#greeting").textContent = `Welcome ${formattedName}`;
+        });
 
     </script>
 

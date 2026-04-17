@@ -55,7 +55,7 @@ h1 {
   margin-bottom: 0;
 }
 
-h2{
+h2 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -65,11 +65,21 @@ h3{
   font-style: italic;
 }
 
-h1, h2, h3, p {
+h1, h2, h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#greeting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: xx-large;
+  margin-bottom: 2em;
 }
 
 .button-box {
