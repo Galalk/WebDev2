@@ -1,0 +1,378 @@
+nav{
+  background:  url(../images/f8fa0d7b3d62158db29996ac9957d1f6-joystick-video-game-line-art-pattern-design.webp) center no-repeat;
+  background-size: cover;    
+  justify-content: center;     
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+nav a{
+  align-items: center;
+  text-decoration: none;
+  color: white; 
+  height: 1em;
+  padding: 0.5em 4em;
+  display: flex;
+}
+
+nav ul{
+  display:flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: x-large;
+  font-family: fantasy;
+}
+
+nav li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid black;
+  background-color: darkblue;
+  border-radius: 0.2em;
+}
+
+nav ul :hover {
+  background-color: lightskyblue;
+}
+
+body {
+  background-color: white;
+  background-image: url(../images/printbanner-background-full-color-geometric-white-and-gray-gradations-eps-10-vector.jpg);
+  background-size: cover;
+}
+
+h1 {
+  font-size: xxx-large;
+  color: white;
+  font-family: fantasy;
+  background-color: crimson;
+  margin-bottom: 0;
+}
+
+h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h3{
+  margin-top: 0;
+  font-family: fantasy;
+  font-style: italic;
+}
+
+h1, h2, h3, p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.top-buttons-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.name-btn, .age-btn {
+  padding: .8em;
+  border: none;
+  margin-bottom: 3em;
+  border-radius: 12px;
+  min-width: 120px;
+  cursor: pointer;
+  color: white;
+  background-color: crimson;
+}
+
+.sort-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 70em;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+#searchtitle {
+    margin: 0;
+    margin-left: 15em;
+}
+
+.sort-btn {
+    display: flex;
+    gap: 10px;
+}
+
+#search {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#sort-price-acc, #sort-price-desc {
+  margin: 1em;
+  margin-bottom: 0.5em;
+}
+
+#add {
+  padding-left: .7em;
+  padding-right: 0.7em;
+  border: none;
+  border-radius: 3em;
+  cursor: pointer;
+  background-color: crimson;
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  font-size: 2.3em;
+  font-family: fantasy
+}
+
+p{
+  font-size: large;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3em;
+}
+
+#table {
+  display: flex;
+  justify-content: center;
+  margin: 0.5em;
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  background-color: white;
+}
+
+table th, table td {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table th {
+  background-color: crimson;
+  color: white;
+  font-family: fantasy;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.addgame .p2 {
+  font-family: fantasy;
+  font-size: x-large;
+  margin-top: 0;
+}
+
+.formrow {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  font-family: fantasy;
+}
+
+.form-btns{
+  display: flex;
+  justify-content: space-around;
+
+}
+footer {
+  width: 100vw;
+  height: 6em;
+  background-image: url(../images/gaming-banner-advertisement-vector-61378729.avif);
+  background-size: cover;
+}
+
+.price-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.2em;
+}
+
+#commentsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+
+.comment {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  max-width: 400px;
+}
+
+.name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.message {
+  color: #555;
+  line-height: 1.4;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 3em;
+}
+
+#display {
+  margin: 2em 5em;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+#inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+} 
+
+#gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1em;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.img-wrap {
+  cursor: pointer;
+}
+
+.img-wrap img {
+  display: block;
+  width: 100%;
+}
+
+.img-wrap:hover {
+  transform: scale(.95);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  max-width: 75em;
+  margin: 0 auto 3em;
+}
+
+.about-container p {
+  text-align: left;
+  margin: 0;
+  flex: 1;
+}
+
+
+#gallery2 .img-wrap {
+  width: 20em;
+  height: 12em;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 15px;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.img-wrap .after {
+  display: block;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.img-wrap .before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-wrap:hover .after {
+  opacity: 0;
+}
+
+.img-wrap:hover .before {
+  opacity: 1;
+}
+
+.show-btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: .8em;
+  max-width: 25em;
+  border: none;
+  border-radius: 12px;
+  min-width: 120px;
+  cursor: pointer;
+  color: white;
+  background-color: crimson;
+  margin: 7em auto;
+}
+
+
+
+
+
+
+
+

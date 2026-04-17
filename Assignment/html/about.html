@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeIt.com</title>
+</head>
+<body>
+    <h1>TradeIt.com &#127918</h1>
+
+    <h3>Buy, sell or trade your old games</h3>
+ 
+    <nav>
+      <ul>
+        <li> <a href="welcome.html">Home</a> </li>
+        <li> <a href="data.html">Store</a> </li>
+        <li> <a href="about.html">About</a> </li>
+      </ul>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    
+    <h2>About my project</h2>
+    <div class="about-container">
+    <p>My project is a website called TradeIt.com, which is a platform for buying,
+       selling, and trading old video games. The website allows users to create accounts, 
+       list their games for sale or trade, and browse through a wide selection of second-hand 
+       games from other users. The goal of the project is to provide a convenient and user-friendly 
+       platform for gamers to exchange their old games with others in the gaming community.</p>
+
+      <section id="gallery2">
+      <div class="img-wrap">
+        <a href="../images/Screenshot 2026-04-14 192158.png">
+          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192158.png" class="after">
+          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192024.png" class="before">
+        </a>    
+       </div> 
+      </section>
+    </div>
+    
+    <button class="show-btn">More before and afters</button>
+
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+    <input type="text" id="name" placeholder="Your name" required><br><br>
+    <textarea id="message" placeholder="Your comment" required></textarea><br><br>
+    <button type="submit">Submit</button>
+    </form>
+    
+    <h2>Comments</h2>
+    <div id="commentsContainer"></div>
+  
+
+    <script id="comments-template" type="text/x-handlebars-template">
+    {{#each comments}}
+    <div class="comment">
+    <div class="name">{{name}}</div>
+    <div class="message">{{message}}</div>
+    </div>
+    {{/each}}
+    </script>
+
+    <script>
+    const comments = [
+      { name: "Alice", message: "Great website!" },
+      { name: "John", message: "Very useful project." }
+    ];
+
+    const form = document.getElementById('commentForm');
+    const container = document.getElementById('commentsContainer');
+
+    const source = document.getElementById('comments-template').innerHTML;
+    const template = Handlebars.compile(source);
+
+    function renderComments() {
+      const reversed = [...comments].reverse();
+      container.innerHTML = template({ comments: reversed });
+    }
+
+    
+    form.addEventListener('submit', function(evt) {
+      evt.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+
+      comments.push({name, message });
+
+      renderComments();
+      form.reset();
+    });
+
+    renderComments();
+
+  </script>
+
+</body>
+</html>
+
+<footer></footer>
+</html>
