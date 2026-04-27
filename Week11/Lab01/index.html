@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css">
+
+  <style>
+    #container {
+      width: 80%;
+      margin: 1em auto;
+      border: solid black;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+.before,
+.after {
+   margin: 0;
+}
+
+.before figcaption,
+.after figcaption {
+   background: #fff;
+   border: 1px solid #c0c0c0;
+   border-radius: 12px;
+   color: #2e3452;
+   opacity: 0.8;
+   padding: 12px;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   line-height: 100%;
+}
+
+.before figcaption {
+   left: 12px;
+}
+
+.after figcaption {
+   right: 12px;
+}
+.coloured-slider {
+   --divider-color: rgba(0, 255, 255, 1);  
+   --default-handle-color: rgba(0, 255, 255, 1); 
+   --divider-width:5px; 
+   --default-handle-width: clamp(40px, 10vw, 200px);
+}
+
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>Art</h1>
+    </header>
+
+  <img-comparison-slider class = "coloured-slider">
+  <figure slot="first" class="before">
+    <img width = "100%" src="images/before.jpg" alt = "before">
+    <figcaption>Before</figcaption>
+  </figure>
+  <figure slot="second" class="after">
+    <img width = "100%"  src="images/after.jpg" alt = "after">
+    <figcaption>After</figcaption>
+   </figure>
+  </img-comparison-slider>
+
+  </div>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js">
+</script>
+
+</body>
+
+</html>

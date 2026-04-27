@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href = "css/style.css">
+  <title>Contact Us at Bubble Under</title>
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+<dialog>
+<header class = "modal__title">
+   <h2>Form Submission<span id = "close"><i class="fa fa-close"></i></span></h2>
+</header>
+<p></p>
+</dialog>
+  
+<div id = "container">
+<header>
+      <h1>BubbleUnder.com</h1>
+      <p id = "tagline">Diving club for the south-west UK - let's make a splash!</p>
+</header>
+<div id = "content">
+  <nav>
+    <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="events.html">Club Events</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="gallery.html">Image Gallery</a></li>
+    </ul>
+    </nav>
+<main>
+
+<h2>Contact Us</h2>
+    <p>To find out more, contact Club Secretary Bob Dobalina on 01793 641207 or email <a href ="mailto:bob@bubbleunder.com">bob@bubbleunder.com.</a></p>
+    <form action="process.html" method="get" id = "contact">
+      <div class = "form-row">
+        <label for="contactname">Contact Name</label>
+         <input type="text" name="contactname" id="contactname" autofocus required pattern = "[A-Z][a-z]+( [A-Z][a-z]+)*"
+         title="Please enter a name (Surname optional) with First Letter capitalised">
+    </div>
+    
+    
+    <div class = "form-row">
+        <label for="telephone">Telephone Number</label>
+         <input type="tel" name="telephone" id="telephone"   required pattern = "^(\(\d{3}\)|\d{3})-?\d{6,}$"
+         title = "Please enter a nine digit phone number">
+    </div>
+    
+    <div class = "form-row">
+        <label for="email" class="ui three wide field">Email Address</label>
+         <input type="email" name="email" id="email" required  pattern = "[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+         title="Please enter a valid email">
+     </div>
+    
+    <div class = "form-row">
+        <label for="eventname">What's the event called?</label>
+         <input type="text" name="eventname" id="eventname"  required pattern="[A-Za-z0-9 ]{3,}"
+         title ="Please enter at least 3 characters">
+    </div>
+    
+    <div class = "form-row">
+        <label for="eventdate">When's the event happening?</label>
+         <input type="date" name="eventdate" id="eventdate" required title="Please select a date">
+    </div>
+    <div class = "form-row">
+      <label for="region" >What region is the event in?</label>
+       <select name="region" id="region">
+           <option value ="South West">South West</option>
+           <option value ="South East">South East</option>
+           <option value ="Midlands">Midlands</option>
+           <option value ="Central">Central</option>
+           <option value ="London">London</option>
+           <option value ="East">East</option>
+           <option value ="North">North</option>
+           <option value ="Scotland">Scotland</option>
+           <option value ="Northern Ireland">Northern Ireland</option>
+           <option value = "Overseas">Overseas (see details below)</option>
+       </select>
+   </div>
+   <p>Please provide any other details you think will be useful to us in the text area below
+    (it may save us calling or emailing you, and help avoid delays).</p>
+  <div class = "form-row">
+    <label for="details">More details (as much as you think we'll need!)</label>
+    <textarea name="details" id="details" cols="30" rows="7"></textarea>
+  </div>
+  <p>If we need to call you back for any more info, what would be the
+    best time to call you on the number supplied?</p>
+  <fieldset class="check">
+    <label for = "morning" ><input type="radio" name="timetocall" id="morning" value="Morning" checked="checked">
+            In the morning
+      </label>
+    <label for = "afternoon" ><input type="radio" name="timetocall" id="afternoon" value="afternoon">
+            In the afternoon
+    </label>
+      <label for = "evening" ><input type="radio" name="timetocall" id="evening" value="evening">
+            In the evening
+    </label>
+    <label for = "never" ><input type="radio" name="timetocall" id="never" value="never">
+            No calls please
+    </label>
+  </fieldset>
+  <p>Bubble Under may share information you give us here with other
+    like-minded people or web sites to promote the event. Please confirm if you
+    are happy for us to do this.</p>
+    
+  <fieldset class="check">
+   <label for = "publicize"><input type="checkbox" name="publicize" id="publicize" checked="checked">
+       I am happy for this event to be publicized outside of and
+       beyond BubbleUnder.com, where possible</label>
+  </fieldset>
+  <button  type="submit">Send Us the Info</button>
+<button  type="reset">Clear the Info</button>
+    </form>
+  </main>
+</div>
+</div>
+
+<script 
+  src="https://cdn.jsdelivr.net/npm/flatpickr">
+</script>
+
+<script>
+  flatpickr("#eventdate", {
+    dateFormat: "d.m.Y",
+	minDate: "01.01.2026",
+    maxDate: "31.12.2026"
+  });
+</script>
+
+
+
+
+
+
+<script src = "js/script.js"></script>
+</body>
+</html>
