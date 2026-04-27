@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TradeIt.com</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css">
+
 </head>
 <body>
     <h1>TradeIt.com &#127918</h1>
@@ -31,18 +35,17 @@
       It has a search function along with sort high to low/ low to high buttons, and also an add button with all necessary fields. For the extra
       feature I included an overall average price of the games currently listed on the table which changes with the search function.<br>
       Finally, this page consists of the add a comment and view comments sections. 
-      It also has a further two interactive elements which are an image rollover of a wireframe to the final page 
+      It also has a further two interactive elements which are an image rollover of a wireframe to the final page which an image slider plugin was implemented over,
       and a show/hide button containg more before and after image rollovers.
 </p>
 
       <section id="gallery2">
-      <div class="img-wrap">
-        <a href="../images/Screenshot 2026-04-14 192158.png">
-          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192158.png" class="after">         <!-- Week 10 Labs-->
-          <img alt="Photo 1" src="../images/Screenshot 2026-04-14 192024.png" class="before">
-        </a>    
+      <div class="img-wrap"> 
+        <img-comparison-slider value="33">
+          <img slot="first" src="../images/Screenshot 2026-04-14 192024.png" alt = "before">
+          <img slot="second" src="../images/Screenshot 2026-04-14 192158.png" alt = "after">    Week 11 Labs
+        </img-comparison-slider>
       </section>
-    </div>
     </div>
     
     <button class="show-btn">More before and afters</button>
@@ -112,7 +115,6 @@
         container.innerHTML = template({ comments: reversed });
       }
 
-    
       form.addEventListener('submit', function(evt) {
         evt.preventDefault();
 
@@ -128,6 +130,11 @@
       renderComments();
 
   </script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js">
+</script>
+
 
 </body>
 </html>
