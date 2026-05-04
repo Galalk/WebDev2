@@ -53,14 +53,14 @@ Handlebars.registerHelper("formatPrice", (price) => {
         : "€0.00";
 });
 
-function addGame(title, price, genre, date, rating) {
-    const newGame = {
-        id: crypto.randomUUID(),
-        title: title,
-        price: price,
-        genre: genre,
-        date: date,
-        rating: rating
+    const addGame = (title, price, genre, date, rating) => {
+        const newGame = {
+            id: crypto.randomUUID(),
+            title: title,
+            price: price,
+            genre: genre,
+            date: date,
+            rating: rating
     };
     gamesData.push(newGame);
     localStorage.setItem("gamesplus", JSON.stringify(gamesData));

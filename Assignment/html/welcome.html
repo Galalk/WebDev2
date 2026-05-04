@@ -24,7 +24,9 @@
 
     <div class = "button-box">                                                
     <section id="btns">
-        <button class="name-btn">Name</button>
+        <input type="text" id="username" placeholder="Enter your name">
+        <button class="name-btn">Submit</button>
+    </section>
     </div>
 
     <p>Welcome to the worlds largest video game exchange website<br>
@@ -66,8 +68,8 @@
     <script src="../js/script.js"></script>
     <script>
 
-    let gallery =  document.querySelector('#gallery');
-    let source = document.querySelector('#display');
+    const gallery =  document.querySelector('#gallery');
+    const source = document.querySelector('#display');
 
     gallery.addEventListener('click', (evt) => {
         const img = evt.target.closest('img');      //Week 10 labs
@@ -86,26 +88,31 @@
             }, 500);
         });
 
-        const namebtn = document.querySelector(".name-btn");
+    const namebtn = document.querySelector(".name-btn");
 
-        namebtn.addEventListener("click", () => {         //Week 3 labs
-        let name = prompt("What is your name");
-        let formattedName = ("");
-        let words = name.split(' '); 
+    namebtn.addEventListener("click", () => {
+      const name = document.querySelector("#username").value;
 
-        for (let i = 0; i < words.length; i++)
-        {
-            formattedName += words[i].charAt(0).toUpperCase() + words[i].substring(1).toLowerCase() + " ";
-        }
+      if (!name) {
+        alert("Please enter your name");
+        return;
+      }
 
-        document.querySelector("#greeting").textContent = `Welcome ${formattedName}`;
-        });
+      let formattedName = "";
+      const words = name.split(" ");
+
+      words.forEach(word => {
+        formattedName += word.charAt(0).toUpperCase() +
+                        word.substring(1).toLowerCase() + " ";
+      });
+
+      document.querySelector("#greeting").textContent =
+        `Welcome ${formattedName}`;
+    });
 
     </script>
 
 </body>
-
-
 <footer></footer>
 
 </html>

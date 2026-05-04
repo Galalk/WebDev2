@@ -31,8 +31,8 @@
 
     <div class = "sort-btn">
         <section id = "buttons">
-            <button id="sort-price-acc">Price: Low to High</button>
-            <button id="sort-price-desc">Price: High to Low</button>
+            <button type ="button" id="sort-price-acc">Price: Low to High</button>
+            <button type ="button" id="sort-price-desc">Price: High to Low</button>
         </section>
     </div>
      </div>
@@ -190,10 +190,9 @@
             }
 
             let sum = 0;
-
-            for (let i = 0; i < data.length; i++) {
-                sum += data[i].price;
-            }
+            data.forEach(item => {
+            sum += item.price;
+            });
 
             const average = sum / data.length;
 
@@ -203,19 +202,19 @@
             });
         };
 
-        document.getElementById("search").addEventListener("input", (evt) => {
+        document.querySelector("#search").addEventListener("input", (evt) => {
             const searchQuery = evt.target.value.toLowerCase();
             const filtered = gamesData.filter(game => game.title.toLowerCase().includes(searchQuery));
             displayRecs(filtered, table);
             updateTotalValue(filtered);
         });
 
-        document.getElementById("sort-price-acc").addEventListener("click", () => {
+        document.querySelector("#sort-price-acc").addEventListener("click", () => {
             const sorted = [...gamesData].sort((a, b) => a.price - b.price);
             displayRecs(sorted, table);
         });
 
-        document.getElementById("sort-price-desc").addEventListener("click", () => {
+        document.querySelector("#sort-price-desc").addEventListener("click", () => {
             const sorted = [...gamesData].sort((a, b) => b.price - a.price);
             displayRecs(sorted, table);
         });
@@ -229,6 +228,6 @@
     </script>
 
 </body>
-
 <footer></footer>
+
 </html>

@@ -37,7 +37,8 @@
       Finally, this page consists of the add a comment and view comments sections. 
       It also has a further two interactive elements which are an image rollover of a wireframe to the final page which an image slider plugin was implemented over,
       and a show/hide button containg more before and after image rollovers.
-</p>
+    </p>
+    
 
       <section id="gallery2">
       <div class="img-wrap"> 
@@ -45,8 +46,11 @@
           <img slot="first" src="../images/Screenshot 2026-04-14 192024.png" alt = "before">
           <img slot="second" src="../images/Screenshot 2026-04-14 192158.png" alt = "after">    Week 11 Labs
         </img-comparison-slider>
+      </div>
       </section>
     </div>
+
+    
     
     <button class="show-btn">More before and afters</button>
     <section id = "hidden-gallery">
@@ -88,9 +92,9 @@
     <script>
 
       const showBtn = document.querySelector('.show-btn');
-      const gallery = document.getElementById('hidden-gallery');
+      const gallery = document.querySelector('#hidden-gallery');
 
-      showBtn.addEventListener('click', function() {                             //Week 3 labs and needed to use google to figure out why it wasnt working and correct the code
+      showBtn.addEventListener('click', () => {                         //Week 3 labs and needed to use google to figure out why it wasnt working and correct the code
         gallery.classList.toggle('show');
         if (gallery.classList.contains('show')) {
           showBtn.textContent = "Show Less";
@@ -104,22 +108,22 @@
         { name: "John", message: "Very useful project." }
       ];
 
-      const form = document.getElementById('commentForm');
-      const container = document.getElementById('commentsContainer');         //Had to ask google for this
+      const form = document.querySelector('#commentForm');
+      const container = document.querySelector('#commentsContainer');         //Had to ask google for this
 
-      const source = document.getElementById('comments-template').innerHTML;
+      const source = document.querySelector('#comments-template').innerHTML;
       const template = Handlebars.compile(source);
 
-      function renderComments() {
+      const renderComments = () => {
         const reversed = [...comments].reverse();
         container.innerHTML = template({ comments: reversed });
       }
 
-      form.addEventListener('submit', function(evt) {
+        form.addEventListener('submit', (evt) => {
         evt.preventDefault();
 
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
+        const name = document.querySelector('#name').value;
+        const message = document.querySelector('#message').value;
 
         comments.push({name, message });
 
@@ -135,9 +139,7 @@
   src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js">
 </script>
 
-
 </body>
-</html>
-
 <footer></footer>
+
 </html>
