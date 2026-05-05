@@ -6,46 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TradeIt.com</title>
 </head>
+
 <body>
-    <h1>TradeIt.com &#127918</h1>
-  
+    <h1>TradeIt.com &#127918;</h1>
     <h3>Buy, sell or trade your old games</h3>
-   
+
     <nav>
-      <ul>
-        <li> <a href="welcome.html">Home</a> </li>
-        <li> <a href="data.html">Store</a> </li>
-        <li> <a href="about.html">About</a> </li>
-      </ul>
+        <ul>
+            <li><a href="welcome.html">Home</a></li>
+            <li><a href="data.html">Store</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
-     <div class = "controls">
-    <form id = "searchtitle">
-        
-        <div class = "formrow">
-            <label for = "search">Search</label>
-            <div class = "search-bar">
-            <input type = "text" name = "search" id = "search" placeholder = "Search by title...">
+
+    <div class="controls">
+        <form id="searchtitle">
+            <div class="formrow">
+                <label for="search">Search</label>
+                <div class="search-bar">
+                    <input type="text" name="search" id="search" placeholder="Search by title...">
+                </div>
             </div>
+        </form>
+
+        <div class="sort-btn">
+            <section id="buttons">
+                <button type="button" id="sort-price-acc">Price: Low to High</button>
+                <button type="button" id="sort-price-desc">Price: High to Low</button>
+            </section>
         </div>
-    </form>
-
-    <div class = "sort-btn">
-        <section id = "buttons">
-            <button type ="button" id="sort-price-acc">Price: Low to High</button>
-            <button type ="button" id="sort-price-desc">Price: High to Low</button>
-        </section>
     </div>
-     </div>
 
-    <div id = "table">
+    <div id="table">
         <table></table>
     </div>
 
     <div class="price-counter">
-    <p><strong>Average price of these games: </strong><span id="total-price">€0.00</span></p>
+        <p>
+            <strong>Average price of these games: </strong>
+            <span id="total-price">€0.00</span>
+        </p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js">
+    </script>
+
     <script id="card-template" type="text/x-handlebars-template">
         <thead>
             <tr>
@@ -65,169 +71,71 @@
                 <td>{{genre}}</td>
                 <td>{{date}}</td>
                 <td>{{rating}}</td>
-                <td><button data-id = "{{id}}">Delete</button></td>
+                <td><button data-id="{{id}}">Delete</button></td>
             </tr>
             {{/each}}
         </tbody>
     </script>
-    
-    <div class = "add-btn">
-        <button id = "add">SELL</button>
+
+    <div class="add-btn">
+        <button id="add">SELL</button>
     </div>
 
     <dialog>
-        <div class = "addgame">
-            <p class = "p2">Your game details</p>
+        <div class="addgame">
+            <p class="p2">Your game details</p>
         </div>
 
-        <form id = "inputForm">
-            <div class = "formrow">
-                <label for = "title">Title</label>
-                <input type = "text" name = "title" id = "title" autofocus required title = "Enter the game title">
+        <form id="inputForm">
+            <div class="formrow">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" autofocus required title="Enter the game title">
             </div>
 
-            <div class = "formrow">
-                <label for = "price">Price</label>
-                <input type = "text" name = "price" id = "price" required title = "Enter price">
+            <div class="formrow">
+                <label for="price">Price</label>
+                <input type="text" name="price" id="price" required title="Enter price">
             </div>
 
-            <div class = "formrow">
-                <label for = "genre">Genre</label>
-                <select name = "genre" id = "genre" required>
-                    <option value = "">  Choose a genre  </option>
-                    <option value = "Shooter">Shooter</option>
-                    <option value = "Action/Adventure">Action/Adventure</option>
-                    <option value = "Racing">Racing</option>
-                    <option value = "Sports">Sports</option>
-                    <option value = "Role-playing">Role-playing</option>
-                    <option value = "Simulation">Simulation</option>
+            <div class="formrow">
+                <label for="genre">Genre</label>
+                <select name="genre" id="genre" required>
+                    <option value="">Choose a genre</option>
+                    <option value="Shooter">Shooter</option>
+                    <option value="Action/Adventure">Action/Adventure</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Role-playing">Role-playing</option>
+                    <option value="Simulation">Simulation</option>
                 </select>
             </div>
 
-            <div class = "formrow">
-                <label for = "date"> Release Date</label>
+            <div class="formrow">
+                <label for="date">Release Date</label>
                 <input type="date" name="date" id="date" required>
             </div>
 
-            <div class = "formrow">
-                <label for = "rating">Age Rating</label>
-                <select name = "rating" id = "rating" required>
-                    <option value = "">  Choose an age rating  </option>
-                    <option value = "PEGI 3">PEGI 3</option>
-                    <option value = "PEGI 7">PEGI 7</option>
-                    <option value = "PEGI 12">PEGI 12</option>
-                    <option value = "PEGI 16">PEGI 16</option>
-                    <option value = "PEGI 18">PEGI 18</option>
+            <div class="formrow">
+                <label for="rating">Age Rating</label>
+                <select name="rating" id="rating" required>
+                    <option value="">Choose an age rating</option>
+                    <option value="PEGI 3">PEGI 3</option>
+                    <option value="PEGI 7">PEGI 7</option>
+                    <option value="PEGI 12">PEGI 12</option>
+                    <option value="PEGI 16">PEGI 16</option>
+                    <option value="PEGI 18">PEGI 18</option>
                 </select>
             </div>
-            <div class = "form-btns">
-            <button type = "submit">Add Game</button><button id="close" type = "button">Exit</button>
+
+            <div class="form-btns">
+                <button type="submit">Add Game</button>
+                <button id="close" type="button">Exit</button>
             </div>
-        </form>    
+        </form>
     </dialog>
 
     <script src="../js/script.js"></script>
-    <script>
-        const form = document.querySelector("#inputForm");
-        const table = document.querySelector("table");
-        const btn = document.querySelector("#add");
-        const close = document.querySelector("#close");
-        const dialog = document.querySelector("dialog");
-        const template = Handlebars.compile(document.querySelector('#card-template').innerHTML);
 
-        const saveData = () => {
-            localStorage.setItem('gamesplus', JSON.stringify(gamesData));
-        };
-
-        Handlebars.registerHelper("formatPrice", (price) => {
-                    const num = Number(price);
-                    return !isNaN(num)
-                    ? num.toLocaleString("en-IE", {
-                        style: "currency",
-                        currency: "EUR",
-                    })
-                    : "€0.00";
-        });
-
-        const formvalues = (evt) => {
-            evt.preventDefault();
-
-            const title = form.elements.title.value;
-            const price = parseFloat(form.elements.price.value);
-            const genre = form.elements.genre.value;
-            const date = form.elements.date.value;
-            const rating = form.elements.rating.value;
-
-            if (isNaN(price) || price < 0) {
-                alert("Price must be a positive number");
-                return;
-            }
-
-            addGame(title, price, genre, date, rating); 
-            saveData();
-            displayRecs(gamesData, table);
-            updateTotalValue(gamesData);
-            form.reset();
-            dialog.close();
-        };
-
-        table.addEventListener("click", (evt) => {
-            if (evt.target.matches("button")) {
-                const gameId = evt.target.dataset.id;
-                gamesData = gamesData.filter(game => game.id !== gameId);
-                saveData();
-                displayRecs(gamesData, table);
-                updateTotalValue(gamesData);
-            }
-        });
-
-        
-
-        const updateTotalValue = (data) => {
-            if (data.length === 0) {
-            document.querySelector("#total-price").textContent = "€0.00";
-            return;
-            }
-
-            let sum = 0;
-            data.forEach(item => {
-            sum += item.price;
-            });
-
-            const average = sum / data.length;
-
-            document.querySelector("#total-price").textContent = average.toLocaleString("en-IE", {
-                style: "currency",
-                currency: "EUR",
-            });
-        };
-
-        document.querySelector("#search").addEventListener("input", (evt) => {
-            const searchQuery = evt.target.value.toLowerCase();
-            const filtered = gamesData.filter(game => game.title.toLowerCase().includes(searchQuery));
-            displayRecs(filtered, table);
-            updateTotalValue(filtered);
-        });
-
-        document.querySelector("#sort-price-acc").addEventListener("click", () => {
-            const sorted = [...gamesData].sort((a, b) => a.price - b.price);
-            displayRecs(sorted, table);
-        });
-
-        document.querySelector("#sort-price-desc").addEventListener("click", () => {
-            const sorted = [...gamesData].sort((a, b) => b.price - a.price);
-            displayRecs(sorted, table);
-        });
-
-        form.addEventListener("submit", formvalues);
-        btn.addEventListener("click", () => dialog.showModal());
-
-        displayRecs(gamesData, table);
-        updateTotalValue(gamesData);
-
-    </script>
-
+    <footer></footer>
 </body>
-<footer></footer>
-
 </html>

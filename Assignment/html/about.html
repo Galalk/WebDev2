@@ -6,140 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TradeIt.com</title>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css">
-
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css">
 </head>
-<body>
-    <h1>TradeIt.com &#127918</h1>
 
+<body>
+    <h1>TradeIt.com &#127918;</h1>
     <h3>Buy, sell or trade your old games</h3>
- 
+
     <nav>
-      <ul>
-        <li> <a href="welcome.html">Home</a> </li>
-        <li> <a href="data.html">Store</a> </li>
-        <li> <a href="about.html">About</a> </li>
-      </ul>
+        <ul>
+            <li><a href="welcome.html">Home</a></li>
+            <li><a href="data.html">Store</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-
-    
     <h2>About my project</h2>
-    <div class="about-container">
-  <p> My project is a website called TradeIt.com, which is a platform for buying,
-      selling, and trading old video games.
-      The first home page consists of two interactive elements, a dynamic welcome message for your name and an image gallery.<br>
-      The second page is the main data page, it contains the table for the array of objects which are individual games. 
-      It has a search function along with sort high to low/ low to high buttons, and also an add button with all necessary fields. For the extra
-      feature I included an overall average price of the games currently listed on the table which changes with the search function.<br>
-      Finally, this page consists of the add a comment and view comments sections. 
-      It also has a further two interactive elements which are an image rollover of a wireframe to the final page which an image slider plugin was implemented over,
-      and a show/hide button containg more before and after image rollovers.
-    </p>
-    
 
-      <section id="gallery2">
-      <div class="img-wrap"> 
-        <img-comparison-slider value="33">
-          <img slot="first" src="../images/Screenshot 2026-04-14 192024.png" alt = "before">
-          <img slot="second" src="../images/Screenshot 2026-04-14 192158.png" alt = "after">    Week 11 Labs
-        </img-comparison-slider>
-      </div>
-      </section>
+    <div class="about-container">
+        <p>
+            My project is a website called TradeIt.com, which is a platform for buying,
+            selling, and trading old video games.
+            The first home page consists of two interactive elements, a dynamic welcome message for your name and an image gallery carousel with the LightGallery plugin.<br>
+            The second page is the main data page, it contains the table for the array of objects which are individual games. 
+            It has a search function along with sort high to low/ low to high buttons, and also an add button with all necessary fields. For the extra
+            feature I included an overall average price of the games currently listed on the table which changes with the search function.<br>
+            Finally, this page consists of the add a comment and view comments sections. 
+            It also has a further two interactive elements which are an image rollover of a wireframe to the final page with an image slider plugin,
+            and a show/hide button containing more before and after image rollovers.
+        </p>
+
+        <section id="gallery2">
+            <div class="img-wrap">
+                <img-comparison-slider value="33">
+                    <img slot="first" src="../images/Screenshot 2026-04-14 192024.png" alt="before">
+                    <img slot="second" src="../images/Screenshot 2026-04-14 192158.png" alt="after">    Week 11 Labs
+                </img-comparison-slider>
+            </div>
+        </section>
     </div>
 
-    
-    
     <button class="show-btn">More before and afters</button>
-    <section id = "hidden-gallery">
-      <div class="img-wrap">
-        <a href="../images/welcome after.png">
-          <img alt="Photo 2" src="../images/welcome after.png" class="after">
-          <img alt="Photo 2" src="../images/welcome wire.png" class="before">
-        </a> 
-      </div>
-       <div class="img-wrap">
-        <a href="../images/about after.png">
-          <img alt="Photo 3" src="../images/about after.png" class="after">
-          <img alt="Photo 3" src="../images/about wire.png" class="before">
-        </a>   
-      </div>
+
+    <section id="hidden-gallery">
+        <div class="img-wrap">
+            <a href="../images/welcome after.png">
+                <img alt="Photo 2" src="../images/welcome after.png" class="after">
+                <img alt="Photo 2" src="../images/welcome wire.png" class="before">
+            </a>
+        </div>
+
+        <div class="img-wrap">
+            <a href="../images/about after.png">
+                <img alt="Photo 3" src="../images/about after.png" class="after">
+                <img alt="Photo 3" src="../images/about wire.png" class="before">
+            </a>
+        </div>
     </section>
-    
 
     <h2>Leave a Comment</h2>
+
     <form id="commentForm">
-    <input type="text" id="name" placeholder="Your name" required><br><br>
-    <textarea id="message" placeholder="Your comment" required></textarea><br><br>
-    <button type="submit">Submit</button>
+        <input type="text" id="name" placeholder="Your name" required><br><br>
+        <textarea id="message" placeholder="Your comment" required></textarea><br><br>
+        <button type="submit">Submit</button>
     </form>
-    
+
     <h2>Comments</h2>
+
     <div id="commentsContainer"></div>
-  
 
     <script id="comments-template" type="text/x-handlebars-template">
-    {{#each comments}}
-    <div class="comment">
-    <div class="name">{{name}}</div>
-    <div class="message">{{message}}</div>
-    </div>
-    {{/each}}
+        {{#each comments}}
+        <div class="comment">
+            <div class="name">{{name}}</div>
+            <div class="message">{{message}}</div>
+        </div>
+        {{/each}}
+    </script>
+    
+    <script 
+      src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js">
     </script>
 
-    <script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js">
+    </script>
 
-      const showBtn = document.querySelector('.show-btn');
-      const gallery = document.querySelector('#hidden-gallery');
+    <script src="../js/script.js"></script>
 
-      showBtn.addEventListener('click', () => {                         //Week 3 labs and needed to use google to figure out why it wasnt working and correct the code
-        gallery.classList.toggle('show');
-        if (gallery.classList.contains('show')) {
-          showBtn.textContent = "Show Less";
-        } else {
-          showBtn.textContent = "More before and afters";
-        }
-      });
-
-      const comments = [
-        { name: "Alice", message: "Great website!" },
-        { name: "John", message: "Very useful project." }
-      ];
-
-      const form = document.querySelector('#commentForm');
-      const container = document.querySelector('#commentsContainer');         //Had to ask google for this
-
-      const source = document.querySelector('#comments-template').innerHTML;
-      const template = Handlebars.compile(source);
-
-      const renderComments = () => {
-        const reversed = [...comments].reverse();
-        container.innerHTML = template({ comments: reversed });
-      }
-
-        form.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-
-        const name = document.querySelector('#name').value;
-        const message = document.querySelector('#message').value;
-
-        comments.push({name, message });
-
-        renderComments();
-        form.reset();
-      });
-
-      renderComments();
-
-  </script>
-
-<script
-  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js">
-</script>
-
+    <footer></footer>
 </body>
-<footer></footer>
-
 </html>
