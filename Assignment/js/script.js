@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
         localStorage.setItem("gamesplus", JSON.stringify(gamesData));  //saves to local storage
     };
 
-    if (page.includes("welcome.html")) {
+    if (page === "/" || page === "/index.html" || page.endsWith("index.html")) {
 
         const gallery = document.querySelector('#gallery');
         const namebtn = document.querySelector(".name-btn");  
