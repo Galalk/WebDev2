@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully before js
 
-    const page = window.location.pathname.toLocaleLowerCase();  //checks which page is being viewed
+    const page = window.location.pathname.toLocaleLowerCase();  //checks which page is being viewed, had to be troubleshooted so netlify could recognise the if locators
 
     const games = [
         {   
-            id: crypto.randomUUID(),         // I needed to ask ask google how to give each game a unique number so it could be deleted safely
+            id: crypto.randomUUID(),         //i needed to ask ask google how to give each game a unique number so it could be deleted safely
             title: "Red Dead Redemption 2",
             price: 24.99,
             genre: "Action/Adventure",
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
 
     let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;  //local storage
 
-    if (page.includes("data")) {
+    if (page.includes("/assignment/html/data")) {
 
     Handlebars.registerHelper("formatPrice", (price) => {  //format price handlebar helper
         const num = Number(price);
