@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
 
     if (page === "/" || page === "/index.html" || page.endsWith("index.html")) {
         console.log("JavaScript logic is now running!");
-        
         const gallery = document.querySelector('#gallery');
         const namebtn = document.querySelector(".name-btn");  
 
