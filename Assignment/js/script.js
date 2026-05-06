@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully before js
-
+console.log("PATHNAME:", window.location.pathname);
     const page = window.location.pathname.toLocaleLowerCase();  //checks which page is being viewed
 
     const games = [
