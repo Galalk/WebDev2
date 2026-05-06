@@ -1,6 +1,6 @@
 nav {
   background: url(../images/f8fa0d7b3d62158db29996ac9957d1f6-joystick-video-game-line-art-pattern-design.webp)
-    center no-repeat;
+  center no-repeat;
   background-size: cover;
   justify-content: center;
   align-items: center;
@@ -66,9 +66,7 @@ h3 {
   font-style: italic;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,8 +99,7 @@ h3 {
   margin-bottom: 1em;
 }
 
-.name-btn,
-.age-btn {
+.name-btn, .age-btn {
   padding: 0.8em;
   border: none;
   margin-bottom: 3em;
@@ -147,8 +144,7 @@ h3 {
   border: 1px solid #ccc;
 }
 
-#sort-price-acc,
-#sort-price-desc {
+#sort-price-acc, #sort-price-desc {
   margin: 1em;
   margin-bottom: 0.5em;
 }
@@ -189,8 +185,7 @@ table {
   background-color: white;
 }
 
-table th,
-table td {
+table th, table td {
   border: 1px solid black;
   padding: 12px;
   text-align: center;

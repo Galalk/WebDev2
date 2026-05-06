@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully before js
 
-    const page = window.location.pathname;
+    const page = window.location.pathname;  //checks which page is being viewed
 
     const games = [
         {   
-            id: crypto.randomUUID(),         // I needed to ask ask google how to give each game a unique number so it could be deleted safely //
+            id: crypto.randomUUID(),         // I needed to ask ask google how to give each game a unique number so it could be deleted safely
             title: "Red Dead Redemption 2",
             price: 24.99,
             genre: "Action/Adventure",
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     ];
 
-    let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;
+    let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;  //local storage
 
     if (page.includes("data.html")) {
 
-    Handlebars.registerHelper("formatPrice", (price) => {
+    Handlebars.registerHelper("formatPrice", (price) => {  //format price handlebar helper
         const num = Number(price);
         return !isNaN(num)
             ? num.toLocaleString("en-IE", {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     }
 
-    const addGame = (title, price, genre, date, rating) => {
+    const addGame = (title, price, genre, date, rating) => {  //add game
         const newGame = {
             id: crypto.randomUUID(),
             title: title,
@@ -70,17 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
             rating: rating
         };
         gamesData.push(newGame);
-        localStorage.setItem("gamesplus", JSON.stringify(gamesData));
+        localStorage.setItem("gamesplus", JSON.stringify(gamesData));  //pushes new games to gamesData
     };
 
     const saveData = () => {
-        localStorage.setItem("gamesplus", JSON.stringify(gamesData));
+        localStorage.setItem("gamesplus", JSON.stringify(gamesData));  //saves to local storage
     };
 
     if (page.includes("welcome.html")) {
 
         const gallery = document.querySelector('#gallery');
-        const namebtn = document.querySelector(".name-btn");
+        const namebtn = document.querySelector(".name-btn");  
 
         if (gallery) {
             lightGallery(document.querySelector('#gallery'), {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 actualSize: false,
                 counter: true,
                 fullScreen: true,
-                zoom: true,
+                zoom: true,                                               //welcome page lightgallery and add name btn js
                 mode: 'lg-fade'
             });
         }
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const name = document.querySelector("#username").value;
 
                 if (!name) {
-                    alert("Please enter your name");
+                    alert("Please enter your name"); 
                     return;
                 }
 
@@ -124,35 +124,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector("#inputForm");
     const table = document.querySelector("table");
-    const btn = document.querySelector("#add");
+    const btn = document.querySelector("#add");    //gets all the important elements and compiles the handlebars template
     const close = document.querySelector("#close");
     const dialog = document.querySelector("dialog");
 
     const template = Handlebars.compile(document.querySelector('#card-template').innerHTML);
 
     const displayRecs = (theData, thedisplay) => {
-        let output = template(theData);
+        let output = template(theData);               //displays the games in the table
         thedisplay.innerHTML = output;
     };
 
     const formvalues = (evt) => {
-        evt.preventDefault();
+        evt.preventDefault();  //prevnts page refresh 
 
         const title = form.elements.title.value;
-        const price = parseFloat(form.elements.price.value);
+        const price = parseFloat(form.elements.price.value);  
         const genre = form.elements.genre.value;
         const date = form.elements.date.value;
         const rating = form.elements.rating.value;
 
         if (isNaN(price) || price < 0) {
-            alert("Price must be a positive number");
+            alert("Price must be a positive number");         //add game form
             return;
         }
 
         addGame(title, price, genre, date, rating);
-        saveData();
+        saveData();  //saves to local
         displayRecs(gamesData, table);
-        updateTotalValue(gamesData);
+        updateTotalValue(gamesData);  //updates the value for the average function 
         form.reset();
         dialog.close();
     };
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             let sum = 0;
-            data.forEach(item => {
+            data.forEach(item => {                          //loops through games and displays average price
                 sum += item.price;
             });
 
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
         table.addEventListener("click", (evt) => {
             if (evt.target.matches("button")) {
                 const gameId = evt.target.dataset.id;
-                gamesData = gamesData.filter(game => game.id !== gameId);
+                gamesData = gamesData.filter(game => game.id !== gameId);    //delete a agmae using the unique id from the randomUUID
                 saveData();
                 displayRecs(gamesData, table);
                 updateTotalValue(gamesData);
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#search").addEventListener("input", (evt) => {
             const searchQuery = evt.target.value.toLowerCase();
             const filtered = gamesData.filter(game =>
-                game.title.toLowerCase().includes(searchQuery)
+                game.title.toLowerCase().includes(searchQuery)   //search funtion for titles
             );
             displayRecs(filtered, table);
             updateTotalValue(filtered);
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#sort-price-acc").addEventListener("click", () => {
             const sorted = [...gamesData].sort((a, b) => a.price - b.price);
             displayRecs(sorted, table);
-        });
+        });                                                                                    //sort btns for price
 
         document.querySelector("#sort-price-desc").addEventListener("click", () => {
             const sorted = [...gamesData].sort((a, b) => b.price - a.price);
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         form.addEventListener("submit", formvalues);
-        btn.addEventListener("click", () => dialog.showModal());
+        btn.addEventListener("click", () => dialog.showModal());     //contols the add game pop up window
         close.addEventListener("click", () => dialog.close());
 
         displayRecs(gamesData, table);
@@ -220,8 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const gallery = document.querySelector('#hidden-gallery');
 
         if (showBtn) {
-            showBtn.addEventListener('click', () => {                         //Week 3 labs and needed to use google to figure out why it wasnt working and correct the code
-                gallery.classList.toggle('show');
+            showBtn.addEventListener('click', () => {                  
+                gallery.classList.toggle('show');                           //show/hide gallery on about page
                 if (gallery.classList.contains('show')) {
                     showBtn.textContent = "Show Less";
                 } else {
@@ -236,10 +236,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         const form = document.querySelector('#commentForm');
-        const container = document.querySelector('#commentsContainer');             //Had to ask google for this
-
+        const container = document.querySelector('#commentsContainer');             //i needed to ask google for the code for the comments section
+                                                                                    //basically this loads the set of starter comments and compiles the handlebars template for them
         const source = document.querySelector('#comments-template').innerHTML;
-        const template = Handlebars.compile(source);
+        const template = Handlebars.compile(source);          
 
         const renderComments = () => {
             const reversed = [...comments].reverse();
