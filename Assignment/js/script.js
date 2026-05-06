@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully before js
 
-    const page = window.location.pathname;  //checks which page is being viewed
+    const page = window.location.pathname.toLocaleLowerCase();  //checks which page is being viewed
 
     const games = [
         {   
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
 
     let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;  //local storage
 
-    if (page.includes("data.html")) {
+    if (page.includes("data")) {
 
     Handlebars.registerHelper("formatPrice", (price) => {  //format price handlebar helper
         const num = Number(price);
@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
         localStorage.setItem("gamesplus", JSON.stringify(gamesData));  //saves to local storage
     };
 
-    if (page === "/" || page === "/index.html" || page.endsWith("index.html")) {
-        console.log("JavaScript logic is now running!");
+    if (page.includes("welcome.html")) {
+
         const gallery = document.querySelector('#gallery');
         const namebtn = document.querySelector(".name-btn");  
 
