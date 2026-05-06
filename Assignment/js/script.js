@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
                 mode: 'lg-fade'
             });
         
-
             namebtn.addEventListener("click", () => {
                 const name = document.querySelector("#username").value;
 
@@ -140,9 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
         const genre = form.elements.genre.value;
         const date = form.elements.date.value;
         const rating = form.elements.rating.value;
-
+                                                                    //add game form
         if (isNaN(price) || price < 0) {
-            alert("Price must be a positive number");         //add game form
+            alert("Price must be a positive number");         
             return;
         }
 
@@ -248,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
                 evt.preventDefault();
 
                 const name = document.querySelector('#name').value;
-                const message = document.querySelector('#message').value;
+                const message = document.querySelector('#message').value;           //adds the new comment to the comments array and renders the comments section again
 
                 comments.push({ name, message });
 
