@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
 
     let gamesData = JSON.parse(localStorage.getItem("gamesplus")) || games;  //local storage
 
-    if (page.includes("/assignment/html/data")) {
+    if (page.includes("data") || page === "/assignment/") {
 
     Handlebars.registerHelper("formatPrice", (price) => {  //format price handlebar helper
         const num = Number(price);
@@ -82,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
         const gallery = document.querySelector('#gallery');
         const namebtn = document.querySelector(".name-btn");  
 
-        if (gallery) {
             lightGallery(document.querySelector('#gallery'), {
                 plugins: [lgZoom, lgThumbnail, lgFullscreen],
                 thumbWidth: 80,
@@ -95,9 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
                 zoom: true,                                               //welcome page lightgallery and add name btn js
                 mode: 'lg-fade'
             });
-        }
+        
 
-        if (namebtn) {
             namebtn.addEventListener("click", () => {
                 const name = document.querySelector("#username").value;
 
@@ -118,9 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
                     `Welcome ${formattedName}`;
             });
         }
-    }
 
-    if (page.includes("data.html")) {
+    if (page.includes("data") || page === "/assignment/") {
 
     const form = document.querySelector("#inputForm");
     const table = document.querySelector("table");
@@ -214,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully
         updateTotalValue(gamesData);
     }
 
-    if (page.includes("about.html")) {
+    if (page.includes("about") || page === "/assignment/") {
 
         const showBtn = document.querySelector('.show-btn');
         const gallery = document.querySelector('#hidden-gallery');
