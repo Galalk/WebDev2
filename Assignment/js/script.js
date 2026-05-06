@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {  //Lets html load up fully before js
-console.log("PATHNAME:", window.location.pathname);
+
     const page = window.location.pathname.toLocaleLowerCase();  //checks which page is being viewed
 
     const games = [
@@ -77,7 +77,7 @@ console.log("PATHNAME:", window.location.pathname);
         localStorage.setItem("gamesplus", JSON.stringify(gamesData));  //saves to local storage
     };
 
-    if (page.includes("welcome.html")) {
+    if (page.includes("welcome") || page === "/assignment/") {
 
         const gallery = document.querySelector('#gallery');
         const namebtn = document.querySelector(".name-btn");  
